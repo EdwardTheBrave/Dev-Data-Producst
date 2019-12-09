@@ -1,0 +1,50 @@
+---
+title: "Assignment Dev Data Products"
+author: "Eduardo Bravo"
+date: "9 de diciembre de 2019"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## R Markdown
+
+This peer assessed assignment has two parts. First, a Shiny application and deploy it on Rstudio's servers. Second, This reproducible pitch presentation about my application.
+
+All of this is part of the Coursera Data Science specialization from the John Hopkins university. 
+
+
+## Slide with R Output
+
+This would be the code that plots and example of what the App does. For full code of the entire Shiny App refer to the github repo (link can be found in the last slide of this presentation)
+
+```{r cars, echo = TRUE, warning=FALSE, message=FALSE}
+library("ggplot2")
+library("dplyr")
+library("lubridate")
+library("rlang")
+library(datasets)
+
+ df <- datasets::airquality %>%
+                mutate(date = ymd(paste("1979", Month, Day, sep = "-")))
+ head(df)
+```
+
+## Slide with Plot
+The final plot type looks like this:
+
+```{r pressure, warning=FALSE, message=FALSE}
+ggplot(data = df, aes(x = date, y = Ozone)) + geom_point() + theme_classic()
+```
+
+
+## The Shiny Application
+
+This shiny application allows users to select the columns from the dataset "Airquality". It is just a simple applications than combines an input (two selectors, one for each axis) with reactiviness and plots the selection interactively in the screen. 
+
+The App itself can be accessed here: https://edwardthebrave.shinyapps.io/DevelopingDataProducts/
+
+The github code of the repo can be found here: https://github.com/EdwardTheBrave/Dev-Data-Producst.git
+
